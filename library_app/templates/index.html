@@ -1,0 +1,40 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{%block content%}
+<style type="text/css">
+
+h1{
+  color: white;
+  text-align: center;
+}
+p{
+  color:black;
+}
+
+
+</style>
+<div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{%static 'img/library3.gif'%}">
+    </div>
+ <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-2 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <p class="lead text-to-speech">
+          Welcome,<br>
+          Our Library provide access to resources and materials that might not be available or affordable,
+           allowing students to further their learning, understanding, and research. Furthermore, libraries provide a safe and welcoming space for students to study and interact with other students and community members.</p>
+      </div>
+      
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="{%static 'img/library2.gif'%}" alt="" width="720">
+      </div>
+    </div>
+  </div>
+  {%include 'footer.html'%}
+{% endblock %}

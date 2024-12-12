@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'fontawesome/css/all.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/templatemo-style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/studentviewbook.css'%}">
+    <link rel="stylesheet" href="{%static 'css/calender.css'%}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg " style="position: sticky; top:0; z-index:1; background-color:aliceblue;">
+        <div class="container-fluid">
+            <a class="navbar-brand " href="{%url 'home'%}">
+                <img src="{%static 'img/logo1.png'%}" alt="" width="35" height="35">
+                Library Management System
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1" data-text="Home" aria-current="page" href="{%url 'home'%}"
+                            id="myButton">
+                            <i class="fa-solid fa-house"></i>Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1" data-text="books" aria-current="page"
+                            href="{%url 'Books'%}">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1" data-text="Cources" href="{%url 'vid'%}">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1" data-text="About" href="{%url 'about'%}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1 " data-text="Contact" href="{%url 'contact'%}">Contact</a>
+                    </li>
+                    {%if request.user.is_authenticated%}
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-3" data-text="My Dashboard" href="{%url 'afterLogi'%}">My
+                            Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button class="nav-link nav-link-3 dropdown-toggle active" data-text="My account option"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {%if stud%}
+                                <img src="{{stud.photo.url}}" alt="" width="24" height="24" class="rounded-circle">
+                                {%else%}
+                                <img src="{%static 'img/profile.png'%}" alt="" width="24" height="24"
+                                    class="rounded-circle">
+                                {%endif%}
+                                {{user.username}}
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-success">
+                                <li> <a href="{% url 'stupdate'%}" class="nav-link nav-link-2" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Edit profile</a>
+                                </li>
+                                <li><a class="dropdown-item " data-text="Settings" href="#">Settings</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="nav-link nav-link-2" data-text="logout" href="{%url 'logout'%}">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    {%else%}
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1" href="{%url 'userLG'%}">
+                            <span class="text-to-speech"
+                                data-text="click to login or register as librarian or student">Login</span>
+                        </a>
+                    </li>
+                    {%endif%}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {%block content%}
+
+    {%endblock%}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+
+    <script src="{%static 'js/plugins.js'%}"></script>
+    <script src="{%static 'js/calender.js'%}"></script>
+
+    <!-- Loader -->
+    <script>
+        $(window).on("load", function () {
+            $('body').addClass('loaded');
+        });
+    </script>
+
+</body>
+
+</html>

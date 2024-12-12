@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>  
+    <style>
+        /* Add your custom styles here */
+        @page {
+        size: landscape;
+        margin: 1cm;
+        padding: 1cm;
+        }
+        #header {
+            background: rgb(0, 62, 69);
+            color: #ffffff;
+            text-align: center;
+            width: 200px;
+            padding: 5px;
+            margin: 2px auto;
+        }
+        #books {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            }
+
+        #books td, #books th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            }
+
+        #books tr:nth-child(even){
+            background-color: #f2f2f2;
+          }
+
+        #books tr:hover {background-color: #ddd;}
+
+        #books th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: black;
+        color: white;
+        }
+        #logo {
+        text-align: center;
+        background-image: url('/static/img/logo1.png');
+        }
+        #logo img {
+            width: 200px; /* adjust the width as needed */
+            height: auto; /* maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div id="logo">
+    <img src="/static/img/logo1.png" alt="Logo">
+    </div> 
+    <h2>Library Management System</h2>
+    <h2>Librarian Department</h2>
+    <h2>Tel: 0782503097</h2>
+    <h2>Email: merchiorabawee@gmail.com</h2>
+    <div id="header">
+     <h1>Week Summary for books borrowed </h1>
+    </div>
+    
+    <table id="books">
+        <thead>
+            <tr>
+                <th>Book isbn</th>
+                <th>Student Name</th>
+                <th>Student School</th>
+                <th>Student Department</th>
+                <th>Book Name</th>
+                <th>Book Author</th>
+                <th>Book Category</th>
+                <th>Issue Date</th>
+                <th>Expiry Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.book.isbn }}</td>
+                <td>{{ item.student.student.first_name }}</td>
+                <td>{{ item.student.school}}</td>
+                <td>{{ item.student.department}}</td>
+                <td>{{ item.book.name }}</td>
+                <td>{{ item.book.author }}</td>
+                <td>{{ item.book.category.name }}</td>
+                <td>{{ item.issuedate }}</td>
+                <td>{{ item.expiredate }}</td>
+                <td>{{ item.status }}</td>
+
+                
+
+                <!-- Populate other table cells -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   <br><br><br>
+   <div id="footer">
+        <p>Prepared by Librarian ABUNGANIRABAWE Merchior</p> <br> 
+        <p>on ....../......../20...</p>
+        <p>Signature:</p>
+    </div>
+</body>
+</html>

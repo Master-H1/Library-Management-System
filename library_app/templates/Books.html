@@ -1,0 +1,73 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{%block content%}
+ <style>
+        .cat{
+            background-image: url('/static/img/library.jpg');
+            background-color: rgba(17, 17, 18, 0.946);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode:color-dodge;
+        }
+    </style>
+    <!-- Page Loader for circle loading income -->
+
+   <!--  <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div> -->
+ 
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{%static 'img/library1.gif'%}">
+        <form class="d-flex tm-search-form" method="GET" action="{%url 'Books'%}">
+            <input class="form-control tm-search-input " type="search" name="q" placeholder="Search by the name of book" aria-label="Search" >
+            <button class="btn btn-outline-success tm-search-btn" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="row mb-4"  id="10">
+         <h2 class="col-6 tm-text-primary" style="text-align:center">Books Categoris</h2>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link nav-link-1" aria-current="page" href="{%url 'Books'%} ">All Books</a>
+                    {%for cat in categories%}
+                    <a class="nav-link  nav-link-1" href="/Books/?categories={{cat.id}} #10">{{cat.name}}</a>   
+                    {%endfor%}         
+                </div>
+            </div>
+        </div>
+        </nav>
+    </div>
+    <h2 class="col-12 tm-text-primary">Latest Release</h2>
+    <div class="container-xxl tm-container-content tm-mt-10 align-items-center rounded-3 border shadow-lg" >      
+        <div class="row tm-mb-90 tm-gallery cat padding-20">
+            <!--==================================================-->
+            {%for book in allbooks%}
+            <div class="card d-flex align-items-center justify-content-center" style="width: 18rem; height:18rem; margin:10px 0px 5px 30px;">
+                <figure class="effect-ming tm-video-item">
+                <img src="{{book.photo.url}}" class="card-img-top" alt="...">
+                <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>View More</h2>
+                        <a href="{%url 'bookdV' book.id%}">View more</a>
+                    </figcaption>   
+                </figure>
+                <div class="card-body">
+                    <h5 class="card-title">{{book.name}}</h5>
+                    Author: <span class="tm-text-primary">{{book.author}}</span><br>
+                    Published on: <span class="tm-text-primary">{{book.published}}</span><br>
+                    Category: <span class="tm-text-primary">{{book.category.name}}</span>
+                </div>    
+            </div>
+            {%endfor%}
+        </div> 
+    </div>
+{%include 'footer.html'%}
+{%endblock%}
+   

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pie Chart</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="pie-chart"></div>
+    <script>
+        // Fetch the data from the server
+        fetch('/generate-charts')  // Replace '/path/to/data/' with the actual path to your data endpoint
+            .then(response => response.json())
+            .then(data => {
+                // Create the pie chart
+                let chart = {
+                    values: data.values,
+                    labels: data.names,
+                    type: 'pie'
+                };
+                let layout = {
+                    title: 'Book to Student'
+                };
+                Plotly.newPlot('pie-chart', [chart], layout);
+            });
+    </script>
+</body>
+</html>

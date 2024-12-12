@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'admin/base.html' %}
+{%load static%}
+
+{% block branding %}
+<h1 id="header">
+    <img src="{%static 'img/logo1.png'%}" alt="" width="35" height="35">
+    Library Management Sytem
+</h1>
+{% endblock %}
+
+{%block extrastyle%}
+<link rel="stylesheet" href="{%static 'css/adminstyle.css'%}">
+
+{%endblock%}

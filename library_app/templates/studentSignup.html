@@ -1,0 +1,63 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{%block content%}
+<div class="container my-5">
+  <div class="row p-0 pb-0 pe-lg-0 pt-lg-0 align-items-center rounded-3 border shadow-lg">
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5 bg-tertiary" >
+    <div class="row g-lg-5 py-0">
+      <div class="col-lg-7 text-lg-start">
+              <h2 class="col-6 tm-text-primary">Student Gateway</h2>
+             <div class="col-lg-10">
+                <img src="{%static '/img/student.gif'%}" width="100%" height="100%" alt=""><br><br>
+              </div>
+        <p class="col-lg-10 fs-4">We are delighted to have you as a part of our library community. As a valued student, After login to the system, you will have access to a wide range of resources, services, and support that will enhance your learning experience.</p>     
+      </div>
+
+    <!--Student Sign up part-->
+    <div class="col-md-10 mx-auto col-lg-5" style="z-index: 0;">
+        {%include 'partials/messages.html'%}
+        <form class="p-4 p-md-5 border rounded-3 bg-light" method="post" action="">
+          {%csrf_token%}
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="first_name" placeholder="Enter First Name" required>
+            <label for="floatingInput">Enter First Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="last_name" placeholder="Enter Last Name" required>
+            <label for="floatingInput">Enter Last Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Create Username" required>
+            <label for="floatingInput">Enter Username</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="school" placeholder="Enter your school" required>
+            <label for="floatingInput">Enter Your School</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="department" placeholder="Enter your department" required>
+            <label for="floatingInput">Enter Your Department</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" name="password1" placeholder="Enter Password" required>
+            <label for="floatingPassword">Enter Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" name="password2" placeholder="Confirm Password" required>
+            <label for="floatingPassword">Confirm Password</label>
+          </div>
+          <button class="w-100 btn btn-lg btn-success" type="submit">Sign up</button><br><br>
+          <small class="text-muted">Already have Account? <a href="{%url 'studLogin' %}">Login</a></small>
+          <hr class="my-4">
+          <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+{%endblock%}

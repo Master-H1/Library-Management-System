@@ -1,0 +1,51 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{%block content%}
+</head>
+<body>
+
+    <div class="container-fluid tm-container-content tm-mt-60">
+        <div class="row mb-4">
+            <h2 class="col-12 tm-text-primary">{{allbook.name}}</h2>
+        </div>
+        <div class="row tm-mb-90">            
+            <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
+                <img src="{{allbook.photo.url}}" alt="Image" class="img-fluid">
+                <div class="mb-4">
+                        <span class="tm-text-gray-dark">Description: </span><br>
+                        <p>"{{allbook.description}}"</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                <div class="tm-bg-gray tm-video-details">
+                    
+                    <div class="text-center mb-5">
+                        <a href="{%url 'Borb' allbook.id%}" class="btn btn-primary tm-btn-big">Borrow this book</a>
+                    </div>  
+                    <h3 class="tm-text-gray-dark mb-3">About this Book</h3> 
+                    <div class="mr-4 mb-2">
+                            <span class="tm-text-gray-dark">Isbn: </span><span class="tm-text-primary">{{allbook.isbn}}</span>
+                        </div>   
+                    <div class="mr-4 mb-2">
+                            <span class="tm-text-gray-dark">Name: </span><span class="tm-text-primary">{{allbook.name}}</span>
+                        </div>                 
+                    
+                        <div class="mr-4 mb-2">
+                            <span class="tm-text-gray-dark">Author: </span><span class="tm-text-primary">{{allbook.author}}</span>
+                        </div>
+                        <div class="mr-4 mb-2">
+                            <span class="tm-text-gray-dark">Published: </span><span class="tm-text-primary">{{allbook.published}}</span>
+                        </div>
+                        <div class="mr-4 mb-2">
+                            <span class="tm-text-gray-dark">Category: </span><span class="tm-text-primary">{{allbook.category.name}}</span>
+                        </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <h2 class="col-12 tm-text-primary">
+                <a href="{{request.META.HTTP_REFERER}}" class="tm-text-primary mr-4 mb-2 d-inline-block">Back</a>
+            </h2>
+        </div>
+    </div> 
+{%include 'footer.html'%}
+{%endblock%}

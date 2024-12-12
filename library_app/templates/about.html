@@ -1,0 +1,81 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{%block content%}
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{%static 'img/library3.gif'%}">    
+    </div>
+
+    <div class="container-lg mt-5  rounded-3 border shadow-lg mb-5 ">
+        <div class="row mb-4">
+            <h2 class="col-12 tm-text-primary">
+                About Our Library management system
+            </h2>
+        </div>
+        <div class="row tm-mb-74 tm-row-1640">            
+            <div class="col-lg-5 col-md-6 col-12">
+                <img src="{%static 'img/library2.gif'%}" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-lg-7 col-md-6 col-12">
+                <div class="tm-about-img-text">
+                    <p class="mb-4">
+                  Our library management system is a web application program that was
+                  designed to streamline and automate various library operations and tasks.
+                   It facilitates efficient management of library resources, including books, journals, magazines, multimedia items, and other materials.</p>
+                    </div>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6" style="float: left;">
+                    <h2 class="tm-text-primary mb-4">
+                      Key Features:
+                    </h2>
+
+                    <p class="mb-4"> 
+                    Cataloging and Classification: It helps in organizing and categorizing library resources based on various parameters such as title, author, subject, and ISBN.
+                    </p>
+                    <p class="mb-4">
+                            Circulation Management: This feature allows librarians to handle the process of issuing and returning books, managing loan periods, tracking overdue items, and managing fines or penalties.
+                    </p>
+                    <p class="mb-4">
+                        OPAC (Online Public Access Catalog): It enables users to search and browse the library's collection through an online portal. This feature provides information about available items, their availability status, and other details.
+                    </p>               
+                </div> 
+                <div class="col-md-6 " style="float: left; height:24rem; overflow:auto;">
+                    <div class="tm-about-2-col">
+                        <h2 class="tm-text-primary mb-4">
+                            Benefits:
+                        </h2>
+                        <p class="mb-4">
+                            Improved Efficiency: Automation saves time and effort for librarians in performing various tasks, such as cataloging, circulation, and inventory management, leading to better overall efficiency.
+                        </p>
+                        <p>
+                            Accessibility: Online catalogs and self-checkout systems make library resources easily accessible for users, enabling them to search and borrow items conveniently.
+                        </p>
+                        <p>
+                        Enhanced Member Services: Features like online reservations, email notifications for due dates, and personalized recommendations improve the overall user experience.
+                        </p>
+                        <p>
+                        Collection Preservation: Efficient management of library items reduces the risk of loss, theft, or damage, thereby preserving the collection for a longer period.
+                        </p>
+                        <p>
+                        Data Management: Library management systems store and manage valuable data, including member information, circulation records, and inventory details, in a secure and structured manner.
+                        </p>
+                        <p>
+                        Streamlined Administration: These systems assist in managing administrative tasks effectively, enabling librarians to focus on providing better services and promoting library resources. </p>
+                    </div>                
+                </div>     
+        </div>        
+    </div> 
+    </div>
+   {%include 'footer.html'%}
+    
+{%endblock%}

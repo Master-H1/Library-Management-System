@@ -1,0 +1,102 @@
+{% extends 'navbar.html' %}
+{%load static%}
+{% block content %}
+  <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="{%static 'img/borrow.gif'%}" alt="" width="100" height="100">
+      <h2>Borrow Book form</h2>
+      <p class="lead">The form bellow will allow you to request for borrowing a book!</p>
+      {%include 'partials/messages.html'%}
+    </div>
+      {%if user.is_authenticated%}
+          <form class="row g-5" method="POST">
+            {%csrf_token%}
+              <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-primary">Other student Information</span>
+                </h4>
+                <ul class="list-group mb-3">
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">School</h6>
+                      <small class="text-muted">{{stud.school}}</small>
+                    </div>
+                  </li>  
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Department</h6>
+                      <small class="text-muted">{{stud.department}}</small>
+                    </div>
+                  </li>        
+                </ul>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                
+                <h4 class="mb-3">Student Information</h4>
+                
+                <div class="needs-validation" novalidate>
+                  <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">First name</label>
+                      <input type="text" class="form-control" id="firstName" placeholder=""  value="{{user.first_name}}" disabled>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="lastName" class="form-label">Last name</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="" value="{{user.last_name}}" required disabled>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="username" class="form-label">Email</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control" id="username" placeholder="Username" value="{{user.email}}" required disabled>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr class="my-4">
+                  <h4 class="mb-3">Book Details</h4>
+                  <div class="row gy-3">
+                    <div class="col-md-3">
+                      <label for="cc-expiration" class="form-label">Book Name</label>
+                      <input type="text" class="form-control" id="cc-expiration" value="{{allbook.name}}" disabled>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="cc-number" class="form-label">Author</label>
+                      <input type="text" class="form-control" id="cc-number" value="{{allbook.author}}" disabled>
+                    </div>
+          
+                    <div class="col-md-3">
+                      <label for="cc-expiration" class="form-label">Book Isbn</label>
+                      <input type="text" class="form-control" id="cc-expiration" value="{{allbook.isbn}}" disabled>
+                    </div>
+                    
+                    <div class="col-md-3">
+                      <label for="cc-expiration" class="form-label">Option</label><br>
+                      {{borform.statusoption}}
+                    </div>
+                  </div>
+                  <hr class="my-4">
+
+                  <button class="w-100 btn btn-primary btn-lg" type="submit">Borrow this book</button>
+                </div>
+                <a href="{%url 'Books'%}" class="btn btn-sm btn-success mt-3">Back to all Books Page</a>
+              </div>
+    </form>
+    {%endif%}
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2023 Merabu Library Management System</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
+
+{%endblock%}

@@ -1,0 +1,80 @@
+{%include 'navbar.html'%}
+{%load static%}
+{%block content%}
+<style>
+  .chat{
+    background-image: url('/static/img/library.jpg');
+    background-attachment:fixed;
+    background-size:cover;
+    background-repeat:no-repeat;
+  }
+</style>
+<body style="background-color: black;">
+  
+      <div class="container">
+        <div class="row col-12 " style="position: relative;">
+          
+          <div class="col-6 bg-light mt-5 chat" style="height: 30rem; overflow:auto; position:absolute;"> 
+            <div style="position: sticky; top:0; z-index:1;">
+                <h4 class="d-flex justify-content-center align-items-center mb-3 p-3 bg-success text-light">Library Management System Chat</h4>
+          </div>  
+            {%for room in rooms%}
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <img src="{%static '/img/profile.png'%}" alt="mdo" width="24" height="24" class="rounded-circle">
+                  &nbsp;&nbsp;
+                  <div>
+                    <h6 class="my-0 text-success">@{{room.user.username}}~~{{room.user.first_name}}</h6>
+                    <small class="text-muted">{{room.message}}</small>
+                  </div>
+                  <span>{{room.timesend}}</span>
+                    <div class="dropdown">
+                                <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                              </a>
+                              <ul class="dropdown-menu text-small shadow">
+                                <li><a class="dropdown-item" href="#">Delete this message</a></li>
+                              </ul>
+                    </div>
+                </li>
+              </ul>
+              {%endfor%}
+              <form action="" method="post" style="position: fixed; bottom:0; width:40%; margin-top:10px;">
+                {%csrf_token%}
+                <div class="input-group mb-3 bg-dark">
+                  <span class="input-group-text" id="basic-addon1">Message</span>
+                  <input type="text" class="form-control bg-darks" placeholder="Enter your message" aria-label="message" aria-describedby="basic-addon1" name="message" required>
+                </div>
+              </form>
+          </div>
+          <div class="col-3">
+
+
+          </div>
+          <div class="col-3" style="height: 30rem; overflow:auto; position:absolute; right:0; top:50px; width:20rem;">
+            <div style="position: sticky; top:0; z-index:1;">
+            <h4 class="d-flex justify-content-between align-items-center mb-0 p-3 bg-success">
+                  <span class="text-light">&nbsp;&nbsp;&nbsp; Group Participants</span>
+                      <span class="position-absolute top-3 start-80 translate-middle badge rounded-pill bg-danger">
+                        {{num}}+
+                      </span>
+                </h4> 
+            </div>
+            {%for participant in participants%}
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <img src="{%static '/img/profile.png'%}" alt="mdo" width="24" height="24" class="rounded-circle">
+                  &nbsp;&nbsp;
+                  <div>
+                    <h6 class="my-0 text-success">@{{participant.username}}</h6>
+                    <small class="text-muted">{{participant.first_name}} &nbsp; {{participant.last_name}}</small>
+                  </div>
+                </li>
+              </ul>
+             {%endfor%}
+
+          </div>
+        </div>
+      </div>
+
+</body>
+{%endblock%}

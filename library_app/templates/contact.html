@@ -1,0 +1,98 @@
+{%extends 'navbar.html'%}
+{%load static%}
+{%block content%}
+    <style>
+     .backg{
+      background-image: url('/static/img/library1.gif');
+      background-size:cover;
+      background-repeat:no-repeat;
+      }
+      .siz{
+        margin:5px 25px;
+        border-radius: 10px;
+      }
+    </style>
+   
+    <div class="container tm-mt-50 rounded-3 border shadow-lg mb-5 backg">
+        <div class="row tm-mb-70">
+            <div class="col-lg-3 col-12 bg-light siz">
+                <h2 class="tm-text-primary mb-5">Contact Page</h2>
+                <form id="contact-form" action="" method="POST" class="tm-contact-form mx-auto">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control rounded-0" placeholder="Your Names" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control rounded-0" placeholder="Your Email" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="8" name="message" class="form-control rounded-0" placeholder="Message" required=></textarea>
+                    </div>
+
+                    <div class="form-group tm-text-right">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>                
+            </div>
+            <div class="col-lg-4 col-12 bg-light siz">
+                <div class="tm-address-col">
+                    <h2 class="tm-text-primary mb-5">Our Address</h2>
+                    <p class="tm-mb-50">Now you can find us in Kigali city.</p>
+                    <address class="tm-text-gray tm-mb-50">
+                       Nyarugenge Campus<br>
+                        Duis consectetur at ligula 10660
+                    </address>
+                    <ul class="tm-contacts">
+                        <li>
+                            <a href="#" class="tm-text-gray">
+                                <i class="fas fa-envelope"></i>
+                                Email: merchiorabawee@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="tm-text-gray">
+                                <i class="fas fa-phone"></i>
+                                Tel: +250782503097
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="tm-text-gray">
+                                <i class="fas fa-globe"></i>
+                                URL: www.merabu.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>                
+            </div>
+            <div class="col-lg-3 col-12 bg-light siz" style="height: 34srem;">
+                <h2 class="tm-text-primary mb-5">Our Location</h2>
+                <!-- Map -->
+                <div class="mapouter mb-4">
+                    <div class="gmap-canvas">
+                        <iframe width="100%" height="400" id="gmap-canvas"
+                            src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    </div>
+                </div>               
+            </div>
+        </div>
+        <!-- This is about who developed the website -->
+  <!--     <div class="row tm-mb-74 tm-people-row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-5">
+                <img src="{%static 'img/me.jpg'%}" alt="Image" class="mb-4 img-fluid">
+                <h2 class="tm-text-primary mb-4">Merabu MKiL</h2>
+                <h3 class="tm-text-secondary h5 mb-4">Chief Executive Officer</h3>
+                <p class="mb-4">
+                    Mauris ante tellus, feugiat nec metus non, bibendum semper velit. Praesent laoreet urna id tristique fermentum. Morbi venenatis dui quis diam mollis pellentesque.
+                </p>
+                <ul class="tm-social pl-0 mb-0">
+                    <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/abunganirabawe-merchior-6561481b4"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            s
+        </div>  -->
+    </div> <!-- container-fluid, tm-container-content -->
+
+{%include 'footer.html'%}
+{%endblock%}
